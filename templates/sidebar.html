@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF AI Assistant</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: white;
+        }
+        .container {
+            padding: 16px;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 16px;
+        }
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #111827;
+        }
+        .section {
+            margin-bottom: 24px;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+        .file-input {
+            width: 100%;
+            margin-bottom: 8px;
+        }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+        .button:hover {
+            background-color: #1d4ed8;
+        }
+        .button:disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
+        }
+        .button.processing {
+            background-color: #9ca3af;
+            cursor: wait;
+        }
+        .button.summarize {
+            background-color: #059669;
+        }
+        .button.summarize:hover {
+            background-color: #047857;
+        }
+        .results {
+            padding: 16px;
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #374151;
+        }
+        .error {
+            color: #dc2626;
+            padding: 8px;
+            margin-top: 8px;
+            background-color: #fee2e2;
+            border-radius: 4px;
+        }
+        .success {
+            color: #059669;
+            padding: 8px;
+            margin-top: 8px;
+            background-color: #ecfdf5;
+            border-radius: 4px;
+        }
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            border: 2px solid #ffffff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">PDF AI Assistant</div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Select PDF</div>
+            <input type="file" accept=".pdf" class="file-input" id="pdfInput">
+            <button class="button" id="processBtn">
+                <span id="processSpinner" class="spinner" style="display: none;"></span>
+                <span id="processBtnText">Process PDF</span>
+            </button>
+        </div>
+
+        <div class="section">
+            <button class="button summarize" id="summarizeBtn" disabled>
+                <span id="summarizeSpinner" class="spinner" style="display: none;"></span>
+                <span id="summarizeBtnText">Summarize</span>
+            </button>
+        </div>
+
+        <div class="results" id="results">
+            Select a PDF file to begin
+        </div>
+    </div>
+
+    <script src="../static/js/sidebar.js"></script>
+</body>
+</html>

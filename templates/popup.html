@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF AI Assistant</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>PDF AI Assistant</h1>
+        
+        <div class="upload-section">
+            <input type="file" id="pdfInput" accept=".pdf" />
+            <button id="processButton">Process PDF</button>
+        </div>
+
+        <div class="analysis-section">
+            <div class="options">
+                <button id="summarizeBtn">Summarize</button>
+                <button id="analyzeBtn">Detailed Analysis</button>
+            </div>
+            <div class="results" id="results">
+                <!-- Results will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/js/popup.js"></script>
+</body>
+</html>

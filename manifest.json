@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "PDF AI Assistant",
+  "version": "1.0",
+  "description": "Process and analyze PDFs using Chrome's built-in AI",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "sidePanel"
+  ],
+  "side_panel": {
+    "default_path": "templates/sidebar.html"
+  },
+  "action": {
+    "default_icon": {
+      "16": "static/icons/icon16.png",
+      "48": "static/icons/icon48.png",
+      "128": "static/icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "app/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["app/content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["static/*", "templates/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

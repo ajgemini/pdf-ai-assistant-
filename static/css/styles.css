@@ -1,0 +1,31 @@
+.summary-header {
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #1f2937;
+    font-size: 1.1em;
+}
+
+.summary-content {
+    line-height: 1.5;
+    color: #374151;
+}
+
+.results {
+    padding: 16px;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 14px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.results.error {
+    color: #dc2626;
+    background-color: #fee2e2;
+}
+
+.results.success {
+    color: #059669;
+    background-color: #ecfdf5;
+}
